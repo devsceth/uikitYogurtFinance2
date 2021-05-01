@@ -11,9 +11,11 @@
   "repository": "https://github.com/KrNel/krnel-uikit",
   "license": "MIT",
   "scripts": {
+    "rmDistWin": "rmdir /s /q dist",
+    "buildRemoveWin": "yarn rmDistWin && yarn buildWin",
+    "buildWin": "rollup -c && tsc -d --emitDeclarationOnly --declarationDir dist",
     "start": "yarn storybook",
     "build": "rm -rf ./dist && rollup -c && tsc -d --emitDeclarationOnly --declarationDir dist",
-    "buildWin": "rollup -c && tsc -d --emitDeclarationOnly --declarationDir dist",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "format:check": "prettier --check --loglevel error 'src/**/*.{js,jsx,ts,tsx}'",
     "format:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
