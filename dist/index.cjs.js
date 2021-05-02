@@ -3596,147 +3596,6 @@ var Panel = function (props) {
 };
 var templateObject_1$6;
 
-var Wrapper = styled__default['default'].div(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
-var StyledNav = styled__default['default'].nav(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
-    var showMenu = _a.showMenu;
-    return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
-}, MENU_HEIGHT, function (_a) {
-    var theme = _a.theme;
-    return theme.nav.background;
-});
-var BodyWrapper = styled__default['default'].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
-var Inner = styled__default['default'].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n\n  ", " {\n    margin-left: ", ";\n    max-width: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n\n  ", " {\n    margin-left: ", ";\n    max-width: ", ";\n  }\n"])), function (_a) {
-    var showMenu = _a.showMenu;
-    return (showMenu ? MENU_HEIGHT + "px" : 0);
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.mediaQueries.nav;
-}, function (_a) {
-    var isPushed = _a.isPushed;
-    return (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
-}, function (_a) {
-    var isPushed = _a.isPushed;
-    return "calc(100% - " + (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px)";
-});
-var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"], ["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.mediaQueries.nav;
-});
-var Menu = function (_a) {
-    var _b;
-    _a.account; _a.login; _a.logout; var isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var children = _a.children;
-    var isXl = useMatchBreakpoints().isXl;
-    var isMobile = isXl === false;
-    var _c = React.useState(!isMobile), isPushed = _c[0], setIsPushed = _c[1];
-    var _d = React.useState(true), showMenu = _d[0], setShowMenu = _d[1];
-    var refPrevOffset = React.useRef(window.pageYOffset);
-    React.useEffect(function () {
-        var handleScroll = function () {
-            var currentOffset = window.pageYOffset;
-            var isBottomOfPage = window.document.body.clientHeight === currentOffset + window.innerHeight;
-            var isTopOfPage = currentOffset === 0;
-            // Always show the menu when user reach the top
-            if (isTopOfPage) {
-                setShowMenu(true);
-            }
-            // Avoid triggering anything at the bottom because of layout shift
-            else if (!isBottomOfPage) {
-                if (currentOffset < refPrevOffset.current) {
-                    // Has scroll up
-                    setShowMenu(true);
-                }
-                else {
-                    // Has scroll down
-                    setShowMenu(false);
-                }
-            }
-            refPrevOffset.current = currentOffset;
-        };
-        var throttledHandleScroll = throttle__default['default'](handleScroll, 200);
-        window.addEventListener("scroll", throttledHandleScroll);
-        return function () {
-            window.removeEventListener("scroll", throttledHandleScroll);
-        };
-    }, []);
-    // Find the home link if provided
-    var homeLink = links.find(function (link) { return link.label === "Home"; });
-    return (React__default['default'].createElement(Wrapper, null,
-        React__default['default'].createElement(StyledNav, { showMenu: showMenu },
-            React__default['default'].createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" })),
-        React__default['default'].createElement(BodyWrapper, null,
-            React__default['default'].createElement(Panel, { isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links }),
-            React__default['default'].createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
-            React__default['default'].createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
-};
-var templateObject_1$5, templateObject_2$1, templateObject_3, templateObject_4, templateObject_5;
-
-var types = {
-    SUCCESS: "success",
-    DANGER: "danger",
-    WARNING: "warning",
-    INFO: "info",
-};
-
-var _a;
-var alertTypeMap = (_a = {},
-    _a[types.INFO] = variants$2.INFO,
-    _a[types.SUCCESS] = variants$2.SUCCESS,
-    _a[types.DANGER] = variants$2.DANGER,
-    _a[types.WARNING] = variants$2.WARNING,
-    _a);
-var StyledToast = styled__default['default'].div(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  ", " {\n    max-width: 400px;\n  }\n"], ["\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  ", " {\n    max-width: 400px;\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.mediaQueries.sm;
-});
-var Toast = function (_a) {
-    var toast = _a.toast, onRemove = _a.onRemove, style = _a.style, ttl = _a.ttl, props = __rest(_a, ["toast", "onRemove", "style", "ttl"]);
-    var timer = React.useRef();
-    var ref = React.useRef(null);
-    var removeHandler = React.useRef(onRemove);
-    var id = toast.id, title = toast.title, description = toast.description, type = toast.type;
-    var handleRemove = React.useCallback(function () { return removeHandler.current(id); }, [id, removeHandler]);
-    var handleMouseEnter = function () {
-        clearTimeout(timer.current);
-    };
-    var handleMouseLeave = function () {
-        if (timer.current) {
-            clearTimeout(timer.current);
-        }
-        timer.current = window.setTimeout(function () {
-            handleRemove();
-        }, ttl);
-    };
-    React.useEffect(function () {
-        if (timer.current) {
-            clearTimeout(timer.current);
-        }
-        timer.current = window.setTimeout(function () {
-            handleRemove();
-        }, ttl);
-        return function () {
-            clearTimeout(timer.current);
-        };
-    }, [timer, ttl, handleRemove]);
-    return (React__default['default'].createElement(reactTransitionGroup.CSSTransition, __assign({ nodeRef: ref, timeout: 250, style: style }, props),
-        React__default['default'].createElement(StyledToast, { ref: ref, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
-            React__default['default'].createElement(Alert, { title: title, variant: alertTypeMap[type], onClick: handleRemove }, description))));
-};
-var templateObject_1$4;
-
-var ZINDEX = 1000;
-var TOP_POSITION = 80; // Initial position from the top
-var StyledToastContainer = styled__default['default'].div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  .enter,\n  .appear {\n    opacity: 0.01;\n  }\n\n  .enter.enter-active,\n  .appear.appear-active {\n    opacity: 1;\n    transition: opacity 250ms ease-in;\n  }\n\n  .exit {\n    opacity: 1;\n  }\n\n  .exit.exit-active {\n    opacity: 0.01;\n    transition: opacity 250ms ease-out;\n  }\n"], ["\n  .enter,\n  .appear {\n    opacity: 0.01;\n  }\n\n  .enter.enter-active,\n  .appear.appear-active {\n    opacity: 1;\n    transition: opacity 250ms ease-in;\n  }\n\n  .exit {\n    opacity: 1;\n  }\n\n  .exit.exit-active {\n    opacity: 0.01;\n    transition: opacity 250ms ease-out;\n  }\n"])));
-var ToastContainer = function (_a) {
-    var toasts = _a.toasts, onRemove = _a.onRemove, _b = _a.ttl, ttl = _b === void 0 ? 6000 : _b, _c = _a.stackSpacing, stackSpacing = _c === void 0 ? 24 : _c;
-    return (React__default['default'].createElement(StyledToastContainer, null,
-        React__default['default'].createElement(reactTransitionGroup.TransitionGroup, null, toasts.map(function (toast, index) {
-            var zIndex = (ZINDEX - index).toString();
-            var top = TOP_POSITION + index * stackSpacing;
-            return (React__default['default'].createElement(Toast, { key: toast.id, toast: toast, onRemove: onRemove, ttl: ttl, style: { top: top + "px", zIndex: zIndex } }));
-        }))));
-};
-var templateObject_1$3;
-
 var Icon$6 = function (props) {
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 96 96" }, props),
         React__default['default'].createElement("circle", { cx: "48", cy: "48", r: "48", fill: "white" }),
@@ -3880,7 +3739,7 @@ var WalletCard = function (_a) {
         React__default['default'].createElement(Icon, { width: "32px" })));
 };
 
-var HelpLink = styled__default['default'](Link)(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  display: flex;\n  align-self: center;\n  align-items: center;\n  margin-top: 24px;\n"], ["\n  display: flex;\n  align-self: center;\n  align-items: center;\n  margin-top: 24px;\n"])));
+var HelpLink = styled__default['default'](Link)(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  display: flex;\n  align-self: center;\n  align-items: center;\n  margin-top: 24px;\n"], ["\n  display: flex;\n  align-self: center;\n  align-items: center;\n  margin-top: 24px;\n"])));
 var ConnectModal = function (_a) {
     var login = _a.login, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b;
     return (React__default['default'].createElement(Modal, { title: "Connect to a wallet", onDismiss: onDismiss },
@@ -3889,13 +3748,13 @@ var ConnectModal = function (_a) {
             React__default['default'].createElement(Icon$18, { color: "primary", mr: "6px" }),
             "Learn how to connect")));
 };
-var templateObject_1$2;
+var templateObject_1$5;
 
-var StyleButton = styled__default['default'](Text).attrs({ role: "button" })(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n"], ["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n"])), function (_a) {
+var StyleButton = styled__default['default'](Text).attrs({ role: "button" })(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n"], ["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.primary;
 });
-var Tooltip = styled__default['default'].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  display: ", ";\n  position: absolute;\n  bottom: -22px;\n  right: 0;\n  left: 0;\n  text-align: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 16px;\n  opacity: 0.7;\n"], ["\n  display: ", ";\n  position: absolute;\n  bottom: -22px;\n  right: 0;\n  left: 0;\n  text-align: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 16px;\n  opacity: 0.7;\n"])), function (_a) {
+var Tooltip = styled__default['default'].div(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  display: ", ";\n  position: absolute;\n  bottom: -22px;\n  right: 0;\n  left: 0;\n  text-align: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 16px;\n  opacity: 0.7;\n"], ["\n  display: ", ";\n  position: absolute;\n  bottom: -22px;\n  right: 0;\n  left: 0;\n  text-align: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 16px;\n  opacity: 0.7;\n"])), function (_a) {
     var isTooltipDisplayed = _a.isTooltipDisplayed;
     return (isTooltipDisplayed ? "block" : "none");
 }, function (_a) {
@@ -3921,7 +3780,7 @@ var CopyToClipboard = function (_a) {
         React__default['default'].createElement(Icon$1a, { width: "20px", color: "primary", ml: "4px" }),
         React__default['default'].createElement(Tooltip, { isTooltipDisplayed: isTooltipDisplayed }, "Copied")));
 };
-var templateObject_1$1, templateObject_2;
+var templateObject_1$4, templateObject_2$1;
 
 var AccountModal = function (_a) {
     var account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b;
@@ -3943,6 +3802,163 @@ var useWalletModal = function (login, logout, account) {
     var onPresentAccountModal = useModal(React__default['default'].createElement(AccountModal, { account: account || "", logout: logout }))[0];
     return { onPresentConnectModal: onPresentConnectModal, onPresentAccountModal: onPresentAccountModal };
 };
+
+var UserBlock = function (_a) {
+    var account = _a.account, login = _a.login, logout = _a.logout;
+    var _b = useWalletModal(login, logout, account), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
+    var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
+    return (React__default['default'].createElement("div", null, account ? (React__default['default'].createElement(Button, { scale: "sm", variant: "tertiary", onClick: function () {
+            onPresentAccountModal();
+        } }, accountEllipsis)) : (React__default['default'].createElement(Button, { scale: "sm", onClick: function () {
+            onPresentConnectModal();
+        } }, "Connect"))));
+};
+var UserBlock$1 = React__default['default'].memo(UserBlock, function (prevProps, nextProps) { return prevProps.account === nextProps.account; });
+
+var Wrapper = styled__default['default'].div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
+var StyledNav = styled__default['default'].nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
+    var showMenu = _a.showMenu;
+    return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
+}, MENU_HEIGHT, function (_a) {
+    var theme = _a.theme;
+    return theme.nav.background;
+});
+var BodyWrapper = styled__default['default'].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
+var Inner = styled__default['default'].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n\n  ", " {\n    margin-left: ", ";\n    max-width: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n\n  ", " {\n    margin-left: ", ";\n    max-width: ", ";\n  }\n"])), function (_a) {
+    var showMenu = _a.showMenu;
+    return (showMenu ? MENU_HEIGHT + "px" : 0);
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.nav;
+}, function (_a) {
+    var isPushed = _a.isPushed;
+    return (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
+}, function (_a) {
+    var isPushed = _a.isPushed;
+    return "calc(100% - " + (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px)";
+});
+var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"], ["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.nav;
+});
+var Menu = function (_a) {
+    var _b;
+    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, 
+    // profile,
+    children = _a.children;
+    var isXl = useMatchBreakpoints().isXl;
+    var isMobile = isXl === false;
+    var _c = React.useState(!isMobile), isPushed = _c[0], setIsPushed = _c[1];
+    var _d = React.useState(true), showMenu = _d[0], setShowMenu = _d[1];
+    var refPrevOffset = React.useRef(window.pageYOffset);
+    React.useEffect(function () {
+        var handleScroll = function () {
+            var currentOffset = window.pageYOffset;
+            var isBottomOfPage = window.document.body.clientHeight === currentOffset + window.innerHeight;
+            var isTopOfPage = currentOffset === 0;
+            // Always show the menu when user reach the top
+            if (isTopOfPage) {
+                setShowMenu(true);
+            }
+            // Avoid triggering anything at the bottom because of layout shift
+            else if (!isBottomOfPage) {
+                if (currentOffset < refPrevOffset.current) {
+                    // Has scroll up
+                    setShowMenu(true);
+                }
+                else {
+                    // Has scroll down
+                    setShowMenu(false);
+                }
+            }
+            refPrevOffset.current = currentOffset;
+        };
+        var throttledHandleScroll = throttle__default['default'](handleScroll, 200);
+        window.addEventListener("scroll", throttledHandleScroll);
+        return function () {
+            window.removeEventListener("scroll", throttledHandleScroll);
+        };
+    }, []);
+    // Find the home link if provided
+    var homeLink = links.find(function (link) { return link.label === "Home"; });
+    return (React__default['default'].createElement(Wrapper, null,
+        React__default['default'].createElement(StyledNav, { showMenu: showMenu },
+            React__default['default'].createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+            React__default['default'].createElement(Flex, null,
+                React__default['default'].createElement(UserBlock$1, { account: account, login: login, logout: logout }))),
+        React__default['default'].createElement(BodyWrapper, null,
+            React__default['default'].createElement(Panel, { isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links }),
+            React__default['default'].createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
+            React__default['default'].createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
+};
+var templateObject_1$3, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+
+var types = {
+    SUCCESS: "success",
+    DANGER: "danger",
+    WARNING: "warning",
+    INFO: "info",
+};
+
+var _a;
+var alertTypeMap = (_a = {},
+    _a[types.INFO] = variants$2.INFO,
+    _a[types.SUCCESS] = variants$2.SUCCESS,
+    _a[types.DANGER] = variants$2.DANGER,
+    _a[types.WARNING] = variants$2.WARNING,
+    _a);
+var StyledToast = styled__default['default'].div(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  ", " {\n    max-width: 400px;\n  }\n"], ["\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  ", " {\n    max-width: 400px;\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.sm;
+});
+var Toast = function (_a) {
+    var toast = _a.toast, onRemove = _a.onRemove, style = _a.style, ttl = _a.ttl, props = __rest(_a, ["toast", "onRemove", "style", "ttl"]);
+    var timer = React.useRef();
+    var ref = React.useRef(null);
+    var removeHandler = React.useRef(onRemove);
+    var id = toast.id, title = toast.title, description = toast.description, type = toast.type;
+    var handleRemove = React.useCallback(function () { return removeHandler.current(id); }, [id, removeHandler]);
+    var handleMouseEnter = function () {
+        clearTimeout(timer.current);
+    };
+    var handleMouseLeave = function () {
+        if (timer.current) {
+            clearTimeout(timer.current);
+        }
+        timer.current = window.setTimeout(function () {
+            handleRemove();
+        }, ttl);
+    };
+    React.useEffect(function () {
+        if (timer.current) {
+            clearTimeout(timer.current);
+        }
+        timer.current = window.setTimeout(function () {
+            handleRemove();
+        }, ttl);
+        return function () {
+            clearTimeout(timer.current);
+        };
+    }, [timer, ttl, handleRemove]);
+    return (React__default['default'].createElement(reactTransitionGroup.CSSTransition, __assign({ nodeRef: ref, timeout: 250, style: style }, props),
+        React__default['default'].createElement(StyledToast, { ref: ref, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
+            React__default['default'].createElement(Alert, { title: title, variant: alertTypeMap[type], onClick: handleRemove }, description))));
+};
+var templateObject_1$2;
+
+var ZINDEX = 1000;
+var TOP_POSITION = 80; // Initial position from the top
+var StyledToastContainer = styled__default['default'].div(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  .enter,\n  .appear {\n    opacity: 0.01;\n  }\n\n  .enter.enter-active,\n  .appear.appear-active {\n    opacity: 1;\n    transition: opacity 250ms ease-in;\n  }\n\n  .exit {\n    opacity: 1;\n  }\n\n  .exit.exit-active {\n    opacity: 0.01;\n    transition: opacity 250ms ease-out;\n  }\n"], ["\n  .enter,\n  .appear {\n    opacity: 0.01;\n  }\n\n  .enter.enter-active,\n  .appear.appear-active {\n    opacity: 1;\n    transition: opacity 250ms ease-in;\n  }\n\n  .exit {\n    opacity: 1;\n  }\n\n  .exit.exit-active {\n    opacity: 0.01;\n    transition: opacity 250ms ease-out;\n  }\n"])));
+var ToastContainer = function (_a) {
+    var toasts = _a.toasts, onRemove = _a.onRemove, _b = _a.ttl, ttl = _b === void 0 ? 6000 : _b, _c = _a.stackSpacing, stackSpacing = _c === void 0 ? 24 : _c;
+    return (React__default['default'].createElement(StyledToastContainer, null,
+        React__default['default'].createElement(reactTransitionGroup.TransitionGroup, null, toasts.map(function (toast, index) {
+            var zIndex = (ZINDEX - index).toString();
+            var top = TOP_POSITION + index * stackSpacing;
+            return (React__default['default'].createElement(Toast, { key: toast.id, toast: toast, onRemove: onRemove, ttl: ttl, style: { top: top + "px", zIndex: zIndex } }));
+        }))));
+};
+var templateObject_1$1;
 
 var ResetCSS = styled.createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  /* prettier-ignore */\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed, \n  figure, figcaption, footer, header, hgroup, \n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    vertical-align: baseline;\n  }\n  /* HTML5 display-role reset for older browsers */\n  /* prettier-ignore */\n  article, aside, details, figcaption, figure, \n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-size: 16px;\n  }\n  ol,\n  ul {\n    list-style: disc;\n    list-style-position: inside;\n  }\n  blockquote,\n  q {\n    quotes: none;\n  }\n  blockquote:before,\n  blockquote:after,\n  q:before,\n  q:after {\n    content: \"\";\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n  a {\n    color: inherit;\n    text-decoration: none;\n  }\n  [role=\"button\"] {\n    cursor: pointer;\n  }\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n  * {\n    font-family: 'Kanit', sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  /* Number */\n  input::-webkit-outer-spin-button,\n  input::-webkit-inner-spin-button {\n    -webkit-appearance: none;\n    margin: 0;\n  }\n  input[type=number] {\n    -moz-appearance: textfield;\n  }\n\n  /* Scrollbar */\n  ::-webkit-scrollbar {\n    width: 8px;\n  }\n  ::-webkit-scrollbar-thumb {\n    background: ", "; \n    border-radius: 8px;\n  }\n  ::-webkit-scrollbar-track {\n    box-shadow: inset 0 0 5px ", "; \n    border-radius: 10px;\n  }\n\n  /* Slider */ \n  input[type=range] {\n    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */\n    width: 100%; /* Specific width is required for Firefox. */\n    background: transparent; /* Otherwise white in Chrome */\n  }\n  input[type=range]::-webkit-slider-thumb {\n    -webkit-appearance: none;\n  }\n  input[type=range]:focus {\n    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */\n  }\n  input[type=range]::-ms-track {\n    width: 100%;\n    cursor: pointer;\n    /* Hides the slider so custom styles can be added */\n    background: transparent; \n    border-color: transparent;\n    color: transparent;\n  }  \n"], ["\n  /* prettier-ignore */\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed, \n  figure, figcaption, footer, header, hgroup, \n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    vertical-align: baseline;\n  }\n  /* HTML5 display-role reset for older browsers */\n  /* prettier-ignore */\n  article, aside, details, figcaption, figure, \n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-size: 16px;\n  }\n  ol,\n  ul {\n    list-style: disc;\n    list-style-position: inside;\n  }\n  blockquote,\n  q {\n    quotes: none;\n  }\n  blockquote:before,\n  blockquote:after,\n  q:before,\n  q:after {\n    content: \"\";\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n  a {\n    color: inherit;\n    text-decoration: none;\n  }\n  [role=\"button\"] {\n    cursor: pointer;\n  }\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n  * {\n    font-family: 'Kanit', sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  /* Number */\n  input::-webkit-outer-spin-button,\n  input::-webkit-inner-spin-button {\n    -webkit-appearance: none;\n    margin: 0;\n  }\n  input[type=number] {\n    -moz-appearance: textfield;\n  }\n\n  /* Scrollbar */\n  ::-webkit-scrollbar {\n    width: 8px;\n  }\n  ::-webkit-scrollbar-thumb {\n    background: ", "; \n    border-radius: 8px;\n  }\n  ::-webkit-scrollbar-track {\n    box-shadow: inset 0 0 5px ", "; \n    border-radius: 10px;\n  }\n\n  /* Slider */ \n  input[type=range] {\n    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */\n    width: 100%; /* Specific width is required for Firefox. */\n    background: transparent; /* Otherwise white in Chrome */\n  }\n  input[type=range]::-webkit-slider-thumb {\n    -webkit-appearance: none;\n  }\n  input[type=range]:focus {\n    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */\n  }\n  input[type=range]::-ms-track {\n    width: 100%;\n    cursor: pointer;\n    /* Hides the slider so custom styles can be added */\n    background: transparent; \n    border-color: transparent;\n    color: transparent;\n  }  \n"])), function (_a) {
     var theme = _a.theme;
