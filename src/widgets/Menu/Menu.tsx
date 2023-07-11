@@ -145,7 +145,7 @@ const Menu: React.FC<NavProps> = ({
           {children}
         </Inner>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
-        <image href="/images/cola/vfat.png"/>
+
       </BodyWrapper>
     </Wrapper>
   );

@@ -40,6 +40,7 @@ const Panel: React.FC<Props> = (props) => {
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
       <PanelBody {...props} />
+        <image href="/images/cola/vfat.png"/>
       <PanelFooter {...props} />
     </StyledPanel>
   );
