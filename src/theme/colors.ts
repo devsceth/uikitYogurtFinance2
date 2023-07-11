@@ -9,6 +9,7 @@ export const baseColors = {
   success: "#32D9C8",
   successalt: "#e2f4ff",
   warning: "#c83c54",
+  soon: "#c83c54",
 };
 
 export const brandColors = {
