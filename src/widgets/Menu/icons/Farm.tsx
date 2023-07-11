@@ -4,10 +4,7 @@ import { SvgProps } from "../../../components/Svg";
 
 const Icon: React.FC<SvgProps> = (props) => {
   return (
-    <Svg viewBox="0 0 24 24" {...props}>
-
-        <svg width="800px" height="800px" viewBox="0 0 1024 1024" className="icon" version="1.1"
-             xmlns="http://www.w3.org/2000/svg">
+      <Svg height="512" viewBox="0 0 64 64" width="512" xmlns="http://www.w3.org/2000/svg" {...props}>
             <path
                 d="M96.259838-0.03198l63.960025 975.390381a47.970019 47.970019 0 0 0 47.970018 47.970019h607.620238a47.970019 47.970019 0 0 0 47.970018-47.970019l63.960025-975.390381H96.259838z"
                 fill="#EAEAEA"/>
@@ -50,7 +47,6 @@ const Icon: React.FC<SvgProps> = (props) => {
             <path
                 d="M512 831.448345c-156.190381 0-312.348782-42.341537-365.019863-58.107683L160.219863 975.358401a47.970019 47.970019 0 0 0 47.970018 47.970019h607.620238a47.970019 47.970019 0 0 0 47.970018-47.970019l13.591506-207.038601c-21.234728 7.451343-186.283573 63.128545-365.371643 63.128545z"
                 fill=""/>
-        </svg>
     </Svg>
   );
 };
