@@ -77,7 +77,6 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
                   {entry.status.text}
                 </LinkStatus>
               )}
-              <image href="/images/cola/vfat.png"/>
             </MenuLink>
           </MenuEntry>
         );
