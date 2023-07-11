@@ -3482,8 +3482,7 @@ var PanelBody = function (_a) {
             React.createElement(MenuLink, { href: entry.href, onClick: handleClick },
                 iconElement,
                 React.createElement(LinkLabelMemo, { isPushed: isPushed }, entry.label),
-                entry.status && (React.createElement(LinkStatus, { color: entry.status.color, fontSize: "14px" }, entry.status.text))),
-            React.createElement("div", null,
+                entry.status && (React.createElement(LinkStatus, { color: entry.status.color, fontSize: "14px" }, entry.status.text)),
                 React.createElement("image", { href: "/images/cola/vfat.png" }))));
     })));
 };
