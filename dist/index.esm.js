@@ -3445,9 +3445,7 @@ var Accordion = function (_a) {
             React.createElement(LinkLabelMemo, { isPushed: isPushed }, label),
             status && (React.createElement(LinkStatus, { color: status.color, fontSize: "14px" }, status.text)),
             isOpen ? React.createElement(Icon$1x, null) : React.createElement(Icon$1y, null)),
-        React.createElement(AccordionContent, { isOpen: isOpen, isPushed: isPushed, maxHeight: React.Children.count(children) * MENU_ENTRY_HEIGHT },
-            children,
-            React.createElement("image", { href: "/images/cola/vfat.png" }))));
+        React.createElement(AccordionContent, { isOpen: isOpen, isPushed: isPushed, maxHeight: React.Children.count(children) * MENU_ENTRY_HEIGHT }, children)));
 };
 var templateObject_1$a, templateObject_2$3;
 
@@ -3574,6 +3572,7 @@ var Panel = function (props) {
     var isPushed = props.isPushed, showMenu = props.showMenu;
     return (React.createElement(StyledPanel, { isPushed: isPushed, showMenu: showMenu },
         React.createElement(PanelBody, __assign({}, props)),
+        React.createElement("image", { href: "/images/Cola/vfat.png" }),
         React.createElement(PanelFooter, __assign({}, props))));
 };
 var templateObject_1$6;

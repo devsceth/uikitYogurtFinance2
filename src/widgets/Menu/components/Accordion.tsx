@@ -70,7 +70,7 @@ const Accordion: React.FC<Props> = ({
         maxHeight={React.Children.count(children) * MENU_ENTRY_HEIGHT}
       >
         {children}
-        <image href="/images/cola/vfat.png"/>
+
       </AccordionContent>
     </Container>
   );
