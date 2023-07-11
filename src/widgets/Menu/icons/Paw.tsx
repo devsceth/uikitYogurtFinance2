@@ -1,6 +1,6 @@
 import React from "react";
 import Svg from "../../../components/Svg/Svg";
-import { SvgProps } from "../../../components/Svg/types";
+import { SvgProps } from "../../../components/Svg";
 
 // When khal makes you add a new icon that you showed him
 // Shooting yourself in the foot gaming
