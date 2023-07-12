@@ -3206,10 +3206,9 @@ styled(Link$1)(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(
     return theme.mediaQueries.nav;
 }, blink);
 var Logo = function (_a) {
-    var isPushed = _a.isPushed, togglePush = _a.togglePush, isDark = _a.isDark, href = _a.href;
+    var isPushed = _a.isPushed, togglePush = _a.togglePush; _a.isDark; var href = _a.href;
     href.startsWith("http");
-    (React.createElement(React.Fragment, null,
-        React.createElement(Logo$2, { className: "desktop-icon", isDark: isDark })));
+    (React.createElement(React.Fragment, null));
     return (React.createElement(Flex, null,
         React.createElement(MenuButton, { "aria-label": "Toggle menu", onClick: togglePush, mr: "24px" }, isPushed ? (React.createElement(Icon$t, { width: "24px", color: "textSubtle" })) : (React.createElement(Icon$u, { width: "24px", color: "textSubtle" })))));
 };
