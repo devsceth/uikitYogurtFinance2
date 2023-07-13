@@ -62,6 +62,11 @@ export const links = [
     href: "/nft",
   },
   {
+    label: "Audit",
+    icon: "AuditIcon",
+    href: "/",
+  },
+  {
     label: "Vote",
     icon: "VoteIcon",
     href: "https://snapshot.org/#/colafactory.eth",
