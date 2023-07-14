@@ -3977,7 +3977,7 @@ var ResetCSS = styled.createGlobalStyle(templateObject_1 || (templateObject_1 = 
 var templateObject_1;
 
 var baseColors = {
-    failure: "#ED4B9E",
+    failure: "#ED7F10",
     primary: "#c83c54",
     primaryBright: "#c83c54",
     primaryDark: "#c83c54",
@@ -3986,7 +3986,6 @@ var baseColors = {
     successalt: "#e2f4ff",
     warning: "#c83c54",
     soon: "#c83c54",
-    orange: "#ED7F10"
 };
 var brandColors = {
     binance: "#c83c54",
