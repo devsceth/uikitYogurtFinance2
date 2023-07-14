@@ -9,6 +9,7 @@ export declare const baseColors: {
     successalt: string;
     warning: string;
     soon: string;
+    orange: string;
 };
 export declare const brandColors: {
     binance: string;
