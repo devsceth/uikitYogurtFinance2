@@ -3972,6 +3972,7 @@ var baseColors = {
     successalt: "#e2f4ff",
     warning: "#c83c54",
     soon: "#c83c54",
+    orange: "#ED7F10"
 };
 var brandColors = {
     binance: "#c83c54",
