@@ -2,18 +2,18 @@ import { Colors } from "./types";
 
 export const baseColors = {
   failure: "#ED7F10",
-  primary: "#32bbe6",
-  primaryBright: "#32bbe6",
-  primaryDark: "#32bbe6",
-  secondary: "#32bbe6",
+  primary: "#fad014",
+  primaryBright: "#fad014",
+  primaryDark: "#fad014",
+  secondary: "#fad014",
   success: "#32D9C8",
   successalt: "#e2f4ff",
-  warning: "#32bbe6",
-  soon: "#32bbe6",
+  warning: "#fad014",
+  soon: "#fad014",
 };
 
 export const brandColors = {
-  binance: "#32bbe6",
+  binance: "#fad014",
 };
 
 export const lightColors: Colors = {
@@ -28,7 +28,7 @@ export const lightColors: Colors = {
   input: "#E3D6BF",
   inputSecondary: "#E3D6BF",
   tertiary: "#E3D6BF",
-  text: "#32bbe6",
+  text: "#fad014",
   textDisabled: "#BDC2C4",
   textSubtle: "#fad014",
   borderColor: "#E9EAEB",
@@ -44,7 +44,7 @@ export const lightColors: Colors = {
 export const darkColors: Colors = {
   ...baseColors,
   ...brandColors,
-  secondary: "#32bbe6",
+  secondary: "#fad014",
   background: "#343135",
   backgroundDisabled: "#3c3742",
   backgroundAlt: "#27262c",
@@ -53,7 +53,7 @@ export const darkColors: Colors = {
   invertedContrast: "#191326",
   input: "#011A27",
   inputSecondary: "#66578D",
-  primaryDark: "#32bbe6",
+  primaryDark: "#fad014",
   tertiary: "#353547",
   text: "#e2effc",
   textDisabled: "#666171",
