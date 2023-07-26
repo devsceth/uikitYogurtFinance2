@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface TabMenuProps {
     activeIndex?: number;
     onItemClick?: (index: number) => void;
