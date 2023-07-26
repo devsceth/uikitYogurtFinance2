@@ -3062,7 +3062,7 @@ var Icon$p = function (props) {
 };
 
 var Logo$2 = function () {
-    return (React__default['default'].createElement("img", { alt: "ColaFactory", src: "/images/cub/LogoTextNewDark.png", style: { width: "auto", height: "30px" } }));
+    return (React__default['default'].createElement("img", { alt: "yogurtfinance", src: "/images/cub/LogoTextNewDark.png", style: { width: "auto", height: "30px" } }));
 };
 
 var Icon$o = function (props) {
@@ -3295,7 +3295,7 @@ var links = [
     {
         label: "Vote",
         icon: "VoteIcon",
-        href: "https://snapshot.org/#/colafactory.eth",
+        href: "https://snapshot.org/#/yogurtfinance.eth",
     },
     {
         label: "Team Battle",
@@ -3382,14 +3382,14 @@ var socials = [
         items: [
             {
                 label: "English",
-                href: "https://t.me/colafactory"
+                href: "https://t.me/yogurtfinance"
             },
         ],
     },
     {
         label: "Twitter",
         icon: "TwitterIcon",
-        href: "https://twitter.com/ColaFactoryEN",
+        href: "https://twitter.com/yogurtfinanceEN",
     },
 ];
 var MENU_HEIGHT = 64;
