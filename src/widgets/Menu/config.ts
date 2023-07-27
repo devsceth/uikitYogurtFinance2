@@ -69,7 +69,7 @@ export const links = [
   {
     label: "Vote",
     icon: "VoteIcon",
-    href: "https://snapshot.org/#/yogurtfinance.eth",
+    href: "https://snapshot.org/#/colafactory.eth",
   },
   {
     label: "Team Battle",
@@ -157,14 +157,14 @@ export const socials = [
     items: [
       {
         label: "English",
-        href: "https://t.me/yogurtfinance"
+        href: "https://t.me/colafactory"
       },
     ],
   },
   {
     label: "Twitter",
     icon: "TwitterIcon",
-    href: "https://twitter.com/yogurtfinanceEN",
+    href: "https://twitter.com/ColaFactoryEN",
   },
 ];
 
